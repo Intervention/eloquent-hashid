@@ -1,0 +1,24 @@
+{
+    "name": "intervention/eloquent-hashid",
+    "description": "Configurable HashId Trait for Laravel Eloquent models",
+    "homepage": "http://intervention.io/",
+    "keywords": ["laravel", "eloquent", "hashid"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oliver Vogel",
+            "email": "oliver@olivervogel.com",
+            "homepage": "https://olivervogel.com/"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "hashids/hashids": "^4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Intervention\\EloquentHashid\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
