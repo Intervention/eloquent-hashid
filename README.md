@@ -22,13 +22,7 @@ After installation you're able to publish the configuration file to your Laravel
 
 You will find a new config file in `config/hashid.php`, which you can customize. **I strongly suggest to change at least the `salt_prefix` option to your own value.**
 
-## Usage
-
-### Code Example
-
-#### Eloquent Model Trait
-
-By including `Intervention\EloquentHashid\HasHashid` your [Eloquent Model](https://laravel.com/docs/eloquent) gets a new `hashid` attribute, which is created based on the models classname, the key and the salt prefix. You're also able to query models with the now added `hashid()` scope.
+Now you can include the trait `Intervention\EloquentHashid\HasHashid` in your [Eloquent Model](https://laravel.com/docs/eloquent) to add the hashid features.
 
 ```php
 use Intervention\EloquentHashid\HasHashid;
@@ -37,14 +31,21 @@ class Item extends Model
 {
     use HasHashid;
 }
+```
 
+## Usage
+
+### Code Example
+
+Every Eloquent Model gets a new `hashid` attribute, which is created based on the models classname, the key and the salt prefix. You're also able to query models with the now added `hashid()` scope.
+
+```php
 // query with scope
 $item = App\Models\Item::hashid('Ma93ka')->firstOrFail();
 
 // access hashid attribute
 $hashid = $item->hashid
 ```
-
 
 ## License
 
