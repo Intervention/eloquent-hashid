@@ -7,6 +7,16 @@ use Hashids\Hashids;
 trait HasHashid
 {
     /**
+     * Call model booted event
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::addGlobalScope(new HashidScope());
+    }
+
+    /**
      * Resolve models route binding
      *
      * @param  string  $value
