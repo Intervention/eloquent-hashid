@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-class HashidScope
+class HashidScope implements Scope
 {
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -29,11 +29,11 @@ class HashidScope
     public function extend(Builder $builder)
     {
         $builder->macro('findByHashid', function (Builder $builder, $hashid) {
-            return $builder->where($hashid)->first();
+            return $builder->hashid($hashid)->first();
         });
 
         $builder->macro('findByHashidOrFail', function (Builder $builder, $hashid) {
-            return $builder->where($hashid)->firstOrFail();
+            return $builder->hashid($hashid)->firstOrFail();
         });
     }
 }
