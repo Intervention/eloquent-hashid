@@ -39,12 +39,32 @@ class Item extends Model
 
 Every Eloquent Model gets a new `hashid` attribute, which is created based on the models classname, the key and the salt prefix. You're also able to query models with the now added `hashid()` scope.
 
+#### Access hashid attribute
+
 ```php
-// query with scope
-$item = App\Models\Item::hashid('Ma93ka')->firstOrFail();
+$item = App\Models\Item::find(123);
 
 // access hashid attribute
 $hashid = $item->hashid
+```
+
+#### Query models with scope
+
+```php
+// query with scope
+$item = App\Models\Item::hashid('Ma93ka')->firstOrFail();
+```
+
+#### Route Model Binding
+
+Eloquent models can be resolved by their hashid in routes by defining a custom key.
+
+```php
+use App\Models\Item;
+
+Route::get('/items/{item:hashid}', function (Item $item) {
+    return $item;
+});
 ```
 
 ## License
