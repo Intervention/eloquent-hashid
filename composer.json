@@ -20,5 +20,12 @@
             "Intervention\\EloquentHashid\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Intervention\\EloquentHashid\\Laravel\\EloquentHashidServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "stable"
 }

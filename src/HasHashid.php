@@ -15,7 +15,7 @@ trait HasHashId
      */
     public function resolveRouteBinding($value, $field = null)
     {
-        if ($this->resolvesViaHashid()) {
+        if ($field === 'hashid') {
             return $this->hashid($value)->firstOrFail();
         }
 
@@ -77,19 +77,8 @@ trait HasHashId
     protected function getHashidSalt(): string
     {
         return implode(':', [
-            config('hashid.salt_prefix', Defaults::SALT_PREFIX)
+            config('hashid.salt_prefix', Defaults::SALT_PREFIX),
             get_class($this),
-            config('app.name')
         ]);
-    }
-
-    /**
-     * Determine if model's route binding is resolved via hashid
-     *
-     * @return bool
-     */
-    protected function resolvesViaHashid(): bool
-    {
-        return in_array(get_class($this), config('hashid.resolve', []));
     }
 }
