@@ -29,7 +29,7 @@ trait HasHashid
      */
     public function getHashidAttribute()
     {
-        return $this->getHashidEngine()->encode($this->id);
+        return $this->getHashidEngine()->encode($this->getKey());
     }
 
     /**
