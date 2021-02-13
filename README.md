@@ -48,11 +48,17 @@ $item = App\Models\Item::find(123);
 $hashid = $item->hashid
 ```
 
-#### Query models with scope
+#### Query models
 
 ```php
-// query with scope
+// query model with scope
 $item = App\Models\Item::hashid('Ma93ka')->firstOrFail();
+
+// scope query in one call
+$item = App\Models\Item::findByHashid('Ma93ka');
+
+// scope query in one call, throw exception if no model was found
+$item = App\Models\Item::findByHashidOrFail('Ma93ka');
 ```
 
 #### Route Model Binding
