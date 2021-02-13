@@ -4,7 +4,7 @@ namespace Intervention\EloquentHashid;
 
 use Hashids\Hashids;
 
-trait HasHashId
+trait HasHashid
 {
     /**
      * Resolve models route binding
