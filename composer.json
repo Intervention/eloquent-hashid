@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "hashids/hashids": "^4"
+        "hashids/hashids": "^5"
     },
     "autoload": {
         "psr-4": {
