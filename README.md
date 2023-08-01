@@ -54,6 +54,9 @@ $hashid = $item->hashid
 // query model with scope
 $item = App\Models\Item::hashid('Ma93ka')->firstOrFail();
 
+// scope can also select multiple items by array
+$item = App\Models\Item::hashid(['Ma93ka', 'Op92ae'])->get();
+
 // scope query in one call
 $item = App\Models\Item::findByHashid('Ma93ka');
 

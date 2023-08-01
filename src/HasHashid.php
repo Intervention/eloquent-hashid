@@ -46,12 +46,18 @@ trait HasHashid
      * Scope to select model by hashid
      *
      * @param  \Illuminate\Database\Eloquent\Builder $query
-     * @param  string                                $hashid
+     * @param  string|array                          $hashid
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeHashid($query, $hashid)
+    public function scopeHashid($query, string|array $hashid)
     {
-        return $query->where('id', $this->decodeHashid($hashid));
+        if (is_string($hashid)) {
+            return $query->where('id', $this->decodeHashid($hashid));
+        }
+
+        return $query->whereIn('id', array_map(function ($encoded) {
+            return $this->decodeHashid($encoded);
+        }, $hashid));
     }
 
     /**
