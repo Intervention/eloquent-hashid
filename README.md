@@ -76,8 +76,10 @@ Route::get('/items/{item:hashid}', function (Item $item) {
 });
 ```
 
+## Authors
+
+This library is developed and maintained by [Oliver Vogel](https://intervention.io)
+
 ## License
 
-Intervention Eloquent Hashid is licensed under the [MIT License](http://opensource.org/licenses/MIT).
-
-Copyright 2021 [Oliver Vogel](https://olivervogel.com/)
+Intervention Eloquent HashID is licensed under the [MIT License](LICENSE).
