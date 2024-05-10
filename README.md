@@ -83,3 +83,4 @@ This library is developed and maintained by [Oliver Vogel](https://intervention.
 ## License
 
 Intervention Eloquent HashID is licensed under the [MIT License](LICENSE).
+
